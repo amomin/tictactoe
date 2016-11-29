@@ -1,0 +1,5 @@
+-std=c++11
+#The following is not needed if you have set this in your .vimrc
+#let g:syntastic_cpp_include_dirs = ['../inc/', '/inc']
+-I
+inc
