@@ -3,6 +3,9 @@
 #include "board.h"
 #include "player.h"
 #include "console.h"
+#include "algorithm.h"
+#include "randomalgorithm.h"
+#include "manualalgorithm.h"
 
 void toggle_player(Player *p1, Player *p2, Player **curr)
 {
@@ -21,22 +24,51 @@ int main()
     Board b;
     Player p1(1), p2(2), *current;
     Console console;
+    Algorithm *a1, *a2;
+
+    console.print("Set player 1 as computer?");
+    if (console.read_yn())
+    {
+        a1 = new RandomAlgorithm(&p1);
+    }
+    else
+    {
+        a1 = new ManualAlgorithm(&p1, &console);
+    }
+    console.print("Set player 2 as computer?");
+    if (console.read_yn())
+    {
+        a2 = new RandomAlgorithm(&p2);
+    }
+    else
+    {
+        a2 = new ManualAlgorithm(&p2, &console);
+    }
 
     current = &p1;
-
     bool user_quit = false;
 
     while (!user_quit)
     {
         console.print(b, current);
-        console.read();
+
+        int selection;
+
+        if (current->id() == a2->player())
+        {
+            selection = a2->move(b);
+        }
+        else if (current->id() == a1->player())
+        {
+            selection = a1->move(b);
+        }
 
         if (console.has_quit()) break;
-        if (console.get_selection() == -1) continue;
+        if (selection == -1) continue;
 
         try
         {
-            b.set(console.get_selection(), current->id() - 1);
+            b.set(selection, current->id() - 1);
         }
         catch (std::invalid_argument const &ex)
         {

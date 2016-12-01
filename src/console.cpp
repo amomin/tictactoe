@@ -57,6 +57,29 @@ void Console::read()
     selection = x;
 }
 
+bool Console::read_yn()
+{
+    std::cout << "Yes [y] or No [n]" << std::endl;
+
+    bool selected = false;
+    bool answer;
+    std::string line;
+
+    while (!selected)
+    {
+        std::getline(std::cin, line);
+        if (line == "y" || line == "Y") {
+            selected = true;
+            answer = true;
+        }
+        if (line == "n" || line == "N") {
+            selected = true;
+            answer = false;
+        }
+    }
+    return answer;
+}
+
 void Console::wait()
 {
     std::cout << "Press any key to continue" << std::endl;

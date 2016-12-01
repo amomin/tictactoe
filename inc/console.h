@@ -11,6 +11,7 @@ class Console
         Console();
         void print(Board b, Player *p);
         void read();
+        bool read_yn();
         void wait();
         int get_selection();
         bool has_quit();
@@ -21,4 +22,5 @@ class Console
         std::string board_to_string(Board b);
         std::string x_or_o(Board b, int x);
 };
+
 #endif
