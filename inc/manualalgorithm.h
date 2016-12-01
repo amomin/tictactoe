@@ -1,10 +1,11 @@
 #ifndef MANUALALGORITHM_H
 #define MANUALALGORITHM_H
 
-#include <string>
 #include "player.h"
 #include "console.h"
 #include "algorithm.h"
+#include <cstdlib>
+#include <ctime>
 
 class ManualAlgorithm : public Algorithm
 {

@@ -1,9 +1,10 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
 
+#include <iostream>
+#include <string>
 #include "board.h"
 #include "player.h"
-#include <string>
 
 class Console
 {
@@ -19,8 +20,8 @@ class Console
     private:
         bool user_quit;
         int selection;
-        std::string board_to_string(Board b);
-        std::string x_or_o(Board b, int x);
+        static std::string board_to_string(Board b);
+        static std::string x_or_o(Board b, int x);
 };
 
 #endif

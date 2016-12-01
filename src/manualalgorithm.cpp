@@ -1,6 +1,3 @@
-#include <cstdlib>
-#include <iostream>
-#include <ctime>
 #include "manualalgorithm.h"
 
 int ManualAlgorithm::player()

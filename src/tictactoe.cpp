@@ -1,11 +1,4 @@
-#include <stdexcept>
 #include "tictactoe.h"
-#include "board.h"
-#include "player.h"
-#include "console.h"
-#include "algorithm.h"
-#include "randomalgorithm.h"
-#include "manualalgorithm.h"
 
 void toggle_player(Player *p1, Player *p2, Player **curr)
 {
@@ -29,7 +22,15 @@ int main()
     console.print("Set player 1 as computer?");
     if (console.read_yn())
     {
-        a1 = new RandomAlgorithm(&p1);
+        console.print("Optimal algorithm?");
+        if (console.read_yn())
+        {
+            a1 = new MaxMinAlgorithm(&p1, &p2);
+        }
+        else
+        {
+            a1 = new RandomAlgorithm(&p1);
+        }
     }
     else
     {
@@ -38,7 +39,15 @@ int main()
     console.print("Set player 2 as computer?");
     if (console.read_yn())
     {
-        a2 = new RandomAlgorithm(&p2);
+        console.print("Optimal algorithm?");
+        if (console.read_yn())
+        {
+            a2 = new MaxMinAlgorithm(&p2, &p1);
+        }
+        else
+        {
+            a2 = new RandomAlgorithm(&p2);
+        }
     }
     else
     {
@@ -57,10 +66,14 @@ int main()
         if (current->id() == a2->player())
         {
             selection = a2->move(b);
+            console.print(std::to_string(selection));
+            console.wait();
         }
         else if (current->id() == a1->player())
         {
             selection = a1->move(b);
+            console.print(std::to_string(selection));
+            console.wait();
         }
 
         if (console.has_quit()) break;

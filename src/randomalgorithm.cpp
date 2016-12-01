@@ -1,6 +1,3 @@
-#include <cstdlib>
-#include <iostream>
-#include <ctime>
 #include "randomalgorithm.h"
 
 int RandomAlgorithm::player()
@@ -20,10 +17,7 @@ int RandomAlgorithm::move(Board b)
     {
         int x = 1 + std::rand() % 9;
 
-        std::cout << "Selected position" << x;
-
         if (b.get(x) == 2) {
-            std::cout << "returning" << x;
             return x;
         }
     }

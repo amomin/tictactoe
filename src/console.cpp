@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
 #include "console.h"
-
 
 Console::Console()
 {
@@ -17,6 +14,7 @@ void print_head()
 
 void unix_clear()
 {
+    // From stackoverflow:
     // CSI[2J clears screen, CSI[H moves the cursor to top-left corner
     std::cout << "\x1B[2J\x1B[H";
 }
@@ -82,7 +80,7 @@ bool Console::read_yn()
 
 void Console::wait()
 {
-    std::cout << "Press any key to continue" << std::endl;
+    std::cout << "Press enter to continue" << std::endl;
     std::string l;
     std::getline(std::cin, l);
 }
