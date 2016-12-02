@@ -1,11 +1,14 @@
 #include "player.h"
 
-Player::Player(int id)
+namespace tictactoe
 {
-    player_id = id;;
-}
+    Player::Player(int id)
+    {
+        player_id = id;;
+    }
 
-int Player::id()
-{
-    return player_id;
+    int Player::id()
+    {
+        return player_id;
+    }
 }

@@ -5,24 +5,27 @@
 #include "player.h"
 #include "algorithm.h"
 
-struct MaxMinResult
+namespace tictactoe
 {
-    public:
-        int index;
-        int value;
-};
+    struct MaxMinResult
+    {
+        public:
+            int index;
+            int value;
+    };
 
-class MaxMinAlgorithm : public Algorithm
-{
-    public:
-        MaxMinAlgorithm(Player *q, Player *opp);
-        virtual int player();
-        virtual int move(Board b);
-    private:
-        Player *p;
-        Player *opp;
-        Board clone_board(Board b);
-        MaxMinResult bestmove(Board b);
-};
+    class MaxMinAlgorithm : public Algorithm
+    {
+        public:
+            MaxMinAlgorithm(Player *q, Player *opp);
+            virtual int player();
+            virtual int move(Board b);
+        private:
+            Player *p;
+            Player *opp;
+            Board clone_board(Board b);
+            MaxMinResult bestmove(Board b);
+    };
+}
 
 #endif

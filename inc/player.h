@@ -3,13 +3,16 @@
 
 #include <string>
 
-class Player
+namespace tictactoe
 {
-    public:
-        Player(int id);
-        int id();
-    private:
-        int player_id;
-};
+    class Player
+    {
+        public:
+            Player(int id);
+            int id();
+        private:
+            int player_id;
+    };
+}
 
 #endif

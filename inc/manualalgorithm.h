@@ -7,15 +7,18 @@
 #include <cstdlib>
 #include <ctime>
 
-class ManualAlgorithm : public Algorithm
+namespace tictactoe
 {
-    public:
-        ManualAlgorithm(Player *q, Console *c);
-        virtual int player();
-        virtual int move(Board b);
-    private:
-        Player *p;
-        Console *console;
-};
+    class ManualAlgorithm : public Algorithm
+    {
+        public:
+            ManualAlgorithm(Player *q, Console *c);
+            virtual int player();
+            virtual int move(Board b);
+        private:
+            Player *p;
+            Console *console;
+    };
+}
 
 #endif

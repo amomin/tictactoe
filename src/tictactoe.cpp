@@ -1,6 +1,8 @@
 #include "tictactoe.h"
 
-void toggle_player(Player *p1, Player *p2, Player **curr)
+void toggle_player(tictactoe::Player *p1,
+                   tictactoe::Player *p2,
+                   tictactoe::Player **curr)
 {
     if ((*curr)->id() == p1->id())
     {
@@ -14,10 +16,10 @@ void toggle_player(Player *p1, Player *p2, Player **curr)
 
 int main()
 {
-    Board b;
-    Player p1(1), p2(2), *current;
-    Console console;
-    Algorithm *a1, *a2;
+    tictactoe::Board b;
+    tictactoe::Player p1(1), p2(2), *current;
+    tictactoe::Console console;
+    tictactoe::Algorithm *a1, *a2;
 
     console.print("Set player 1 as computer?");
     if (console.read_yn())
@@ -25,16 +27,16 @@ int main()
         console.print("Optimal algorithm?");
         if (console.read_yn())
         {
-            a1 = new MaxMinAlgorithm(&p1, &p2);
+            a1 = new tictactoe::MaxMinAlgorithm(&p1, &p2);
         }
         else
         {
-            a1 = new RandomAlgorithm(&p1);
+            a1 = new tictactoe::RandomAlgorithm(&p1);
         }
     }
     else
     {
-        a1 = new ManualAlgorithm(&p1, &console);
+        a1 = new tictactoe::ManualAlgorithm(&p1, &console);
     }
     console.print("Set player 2 as computer?");
     if (console.read_yn())
@@ -42,16 +44,16 @@ int main()
         console.print("Optimal algorithm?");
         if (console.read_yn())
         {
-            a2 = new MaxMinAlgorithm(&p2, &p1);
+            a2 = new tictactoe::MaxMinAlgorithm(&p2, &p1);
         }
         else
         {
-            a2 = new RandomAlgorithm(&p2);
+            a2 = new tictactoe::RandomAlgorithm(&p2);
         }
     }
     else
     {
-        a2 = new ManualAlgorithm(&p2, &console);
+        a2 = new tictactoe::ManualAlgorithm(&p2, &console);
     }
 
     current = &p1;
