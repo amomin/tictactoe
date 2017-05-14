@@ -4,16 +4,15 @@ namespace tictactoe
 {
     int RandomAlgorithm::player() const
     {
-        return p->id();
+        return p.id();
     }
 
-    RandomAlgorithm::RandomAlgorithm(Player *q)
+    RandomAlgorithm::RandomAlgorithm(const Player& q) : p(q)
     {
         std::srand(std::time(0));
-        p = q;    
     }
 
-    int RandomAlgorithm::move(const Board& b)
+    int RandomAlgorithm::move(const Board& b) const
     {
         for (int i = 0; i < 1000; i++)
         {

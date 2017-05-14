@@ -10,7 +10,7 @@ namespace tictactoe
     {
         public:
             virtual int player() const = 0;
-            virtual int move(const Board& b) = 0;
+            virtual int move(const Board& b) const = 0;
     };
 }
 

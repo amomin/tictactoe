@@ -17,14 +17,14 @@ namespace tictactoe
     class MaxMinAlgorithm : public Algorithm
     {
         public:
-            MaxMinAlgorithm(Player *q, Player *opp);
+            MaxMinAlgorithm(const Player& q, const Player& opp);
             virtual int player() const;
-            virtual int move(const Board& b);
+            virtual int move(const Board& b) const;
         private:
-            Player *p;
-            Player *opp;
-            Board clone_board(Board b);
-            MaxMinResult bestmove(Board b);
+            const Player p;
+            const Player opp;
+            Board clone_board(Board b) const;
+            MaxMinResult bestmove(Board b) const;
     };
 }
 

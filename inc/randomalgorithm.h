@@ -12,11 +12,11 @@ namespace tictactoe
     class RandomAlgorithm : public Algorithm
     {
         public:
-            RandomAlgorithm(Player *q);
+            RandomAlgorithm(const Player& q);
             virtual int player() const;
-            virtual int move(const Board& b);
+            virtual int move(const Board& b) const;
         private:
-            Player *p;
+            const Player p;
     };
 }
 

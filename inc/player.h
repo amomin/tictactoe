@@ -11,7 +11,7 @@ namespace tictactoe
             Player(int id);
             int id() const;
         private:
-            int player_id_;
+            const int player_id_;
     };
 }
 

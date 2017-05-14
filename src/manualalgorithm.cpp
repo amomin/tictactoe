@@ -4,16 +4,13 @@ namespace tictactoe
 {
     int ManualAlgorithm::player() const
     {
-        return p->id();
+        return p.id();
     }
 
-    ManualAlgorithm::ManualAlgorithm(Player *q, Console *c)
-    {
-        p = q;
-        console = c;
-    }
+    ManualAlgorithm::ManualAlgorithm(const Player& q, Console *c) :
+        p(q), console(c) {}
 
-    int ManualAlgorithm::move(const Board& b)
+    int ManualAlgorithm::move(const Board& b) const
     {
         console->read();
         return console->get_selection();

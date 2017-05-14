@@ -27,16 +27,16 @@ int main()
         console.print("Optimal algorithm?");
         if (console.read_yn())
         {
-            a1 = new tictactoe::MaxMinAlgorithm(&p1, &p2);
+            a1 = new tictactoe::MaxMinAlgorithm(p1, p2);
         }
         else
         {
-            a1 = new tictactoe::RandomAlgorithm(&p1);
+            a1 = new tictactoe::RandomAlgorithm(p1);
         }
     }
     else
     {
-        a1 = new tictactoe::ManualAlgorithm(&p1, &console);
+        a1 = new tictactoe::ManualAlgorithm(p1, &console);
     }
     console.print("Set player 2 as computer?");
     if (console.read_yn())
@@ -44,16 +44,16 @@ int main()
         console.print("Optimal algorithm?");
         if (console.read_yn())
         {
-            a2 = new tictactoe::MaxMinAlgorithm(&p2, &p1);
+            a2 = new tictactoe::MaxMinAlgorithm(p2, p1);
         }
         else
         {
-            a2 = new tictactoe::RandomAlgorithm(&p2);
+            a2 = new tictactoe::RandomAlgorithm(p2);
         }
     }
     else
     {
-        a2 = new tictactoe::ManualAlgorithm(&p2, &console);
+        a2 = new tictactoe::ManualAlgorithm(p2, &console);
     }
 
     current = &p1;
@@ -61,7 +61,7 @@ int main()
 
     while (!user_quit)
     {
-        console.print(b, current);
+        console.print(b, *current);
 
         int selection;
 
@@ -94,13 +94,13 @@ int main()
 
         if (b.has_won())
         {
-            console.print(b, current);
+            console.print(b, *current);
             console.print("Player " + std::to_string(current->id()) + " has won.");
             break;
         }
         if (b.is_full())
         {
-            console.print(b, current);
+            console.print(b, *current);
             console.print("Game ended in a draw.");
             break;
         }

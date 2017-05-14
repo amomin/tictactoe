@@ -12,18 +12,18 @@ namespace tictactoe
     {
         public:
             Console();
-            void print(Board b, Player *p) const;
+            void print(const Board& b, const Player& p) const;
             void read();
             bool read_yn();
             void wait() const;
-            int get_selection();
-            bool has_quit();
-            void print(std::string str) const;
+            int get_selection() const;
+            bool has_quit() const;
+            void print(const std::string& str) const;
         private:
             bool user_quit;
             int selection;
-            static std::string board_to_string(Board b);
-            static std::string x_or_o(Board b, int x);
+            static std::string board_to_string(const Board& b);
+            static std::string x_or_o(const Board& b, int x);
     };
 }
 

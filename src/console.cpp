@@ -87,30 +87,30 @@ namespace tictactoe
         std::getline(std::cin, l);
     }
 
-    bool Console::has_quit()
+    bool Console::has_quit() const
     {
         return user_quit;
     }
 
-    int Console::get_selection()
+    int Console::get_selection() const
     {
         return selection;
     }
 
-    void Console::print(Board b, Player *p) const
+    void Console::print(const Board& b, const Player& p) const
     {
         unix_clear();
         print_head();
         std::cout << board_to_string(b) << std::endl;
-        std::cout << "Player " + std::to_string(p->id()) + " turn." << std::endl;
+        std::cout << "Player " + std::to_string(p.id()) + " turn." << std::endl;
     }
 
-    void Console::print(std::string str) const
+    void Console::print(const std::string& str) const
     {
         std::cout << str << std::endl;
     }
 
-    std::string Console::board_to_string(Board b)
+    std::string Console::board_to_string(const Board& b)
     {
         std::string output = "";
         output = output + " -------------\n";
@@ -132,7 +132,7 @@ namespace tictactoe
         return output;
     }
 
-    std::string Console::x_or_o(Board b, int idx)
+    std::string Console::x_or_o(const Board& b, int idx)
     {
         if (b.get(idx) == 0)
         {

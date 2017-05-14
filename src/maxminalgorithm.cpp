@@ -2,24 +2,22 @@
 
 namespace tictactoe
 {
-    MaxMinAlgorithm::MaxMinAlgorithm(Player *q, Player *qopp)
-    {
-        p = q;
-        opp = qopp;
-    }
+    MaxMinAlgorithm::MaxMinAlgorithm(const Player& q, const Player& qopp) :
+        p(q),
+        opp(qopp) {}
 
     int MaxMinAlgorithm::player() const
     {
-        return p->id();
+        return p.id();
     }
 
-    int MaxMinAlgorithm::move(const Board& b)
+    int MaxMinAlgorithm::move(const Board& b) const
     {
         MaxMinResult result = bestmove(b);
         return result.index;
     }
 
-    MaxMinResult MaxMinAlgorithm::bestmove(Board b)
+    MaxMinResult MaxMinAlgorithm::bestmove(Board b) const
     {
         //2 = win, 1 = draw, 0 = lose
         MaxMinResult result;
@@ -30,7 +28,7 @@ namespace tictactoe
         {
             if (b.is_set(i)) continue;
             Board clone = clone_board(b);
-            clone.set(i, p->id() - 1);
+            clone.set(i, p.id() - 1);
 
             // If win by playing here, return that.
             if (clone.has_won()) {
@@ -60,7 +58,7 @@ namespace tictactoe
         return result;
     }
 
-    Board MaxMinAlgorithm::clone_board(Board b)
+    Board MaxMinAlgorithm::clone_board(Board b) const
     {
         Board result = Board();
         for (int i = 1; i < 10; i++)
