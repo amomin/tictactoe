@@ -2,7 +2,7 @@
 
 namespace tictactoe
 {
-    int RandomAlgorithm::player()
+    int RandomAlgorithm::player() const
     {
         return p->id();
     }
@@ -13,7 +13,7 @@ namespace tictactoe
         p = q;    
     }
 
-    int RandomAlgorithm::move(Board b)
+    int RandomAlgorithm::move(const Board& b)
     {
         for (int i = 0; i < 1000; i++)
         {

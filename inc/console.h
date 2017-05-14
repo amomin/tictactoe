@@ -12,13 +12,13 @@ namespace tictactoe
     {
         public:
             Console();
-            void print(Board b, Player *p);
+            void print(Board b, Player *p) const;
             void read();
             bool read_yn();
-            void wait();
+            void wait() const;
             int get_selection();
             bool has_quit();
-            void print(std::string str);
+            void print(std::string str) const;
         private:
             bool user_quit;
             int selection;

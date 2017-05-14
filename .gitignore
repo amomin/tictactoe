@@ -1,2 +1,8 @@
 bin/*
 obj/*
+TAGS
+GPATH
+GSYMS
+GTAGS
+GRTAGS
+tags

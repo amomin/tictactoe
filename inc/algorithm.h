@@ -9,8 +9,8 @@ namespace tictactoe
     class Algorithm
     {
         public:
-            virtual int player() = 0;
-            virtual int move(Board b) = 0;
+            virtual int player() const = 0;
+            virtual int move(const Board& b) = 0;
     };
 }
 

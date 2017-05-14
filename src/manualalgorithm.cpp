@@ -2,7 +2,7 @@
 
 namespace tictactoe
 {
-    int ManualAlgorithm::player()
+    int ManualAlgorithm::player() const
     {
         return p->id();
     }
@@ -13,7 +13,7 @@ namespace tictactoe
         console = c;
     }
 
-    int ManualAlgorithm::move(Board b)
+    int ManualAlgorithm::move(const Board& b)
     {
         console->read();
         return console->get_selection();

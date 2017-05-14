@@ -18,8 +18,8 @@ namespace tictactoe
     {
         public:
             MaxMinAlgorithm(Player *q, Player *opp);
-            virtual int player();
-            virtual int move(Board b);
+            virtual int player() const;
+            virtual int move(const Board& b);
         private:
             Player *p;
             Player *opp;

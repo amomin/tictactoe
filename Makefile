@@ -20,8 +20,11 @@ $(BINDIR)/$(TARGET): $(OBJ)
 $(OBJ): $(OBJDIR)/%.o : %.cpp
 	$(COMPILER) -c $< -o $@ -I $(INCDIR)
 
+# Can put this in a script to run if it were complicated
+etags:
+	find . -type f -regex '.*.\(h\|cpp\)' | etags -
 
 .PHONY: clean
 clean:
-	rm bin/*
 	rm obj/*
+	rm bin/*

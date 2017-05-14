@@ -4,11 +4,11 @@ namespace tictactoe
 {
     Player::Player(int id)
     {
-        player_id = id;;
+        player_id_ = id;;
     }
 
-    int Player::id()
+    int Player::id() const
     {
-        return player_id;
+        return player_id_;
     }
 }

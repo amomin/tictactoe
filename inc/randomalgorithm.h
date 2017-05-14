@@ -13,8 +13,8 @@ namespace tictactoe
     {
         public:
             RandomAlgorithm(Player *q);
-            virtual int player();
-            virtual int move(Board b);
+            virtual int player() const;
+            virtual int move(const Board& b);
         private:
             Player *p;
     };

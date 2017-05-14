@@ -9,9 +9,9 @@ namespace tictactoe
     {
         public:
             Player(int id);
-            int id();
+            int id() const;
         private:
-            int player_id;
+            int player_id_;
     };
 }
 

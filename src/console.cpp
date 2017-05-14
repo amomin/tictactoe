@@ -80,7 +80,7 @@ namespace tictactoe
         return answer;
     }
 
-    void Console::wait()
+    void Console::wait() const
     {
         std::cout << "Press enter to continue" << std::endl;
         std::string l;
@@ -97,7 +97,7 @@ namespace tictactoe
         return selection;
     }
 
-    void Console::print(Board b, Player *p)
+    void Console::print(Board b, Player *p) const
     {
         unix_clear();
         print_head();
@@ -105,7 +105,7 @@ namespace tictactoe
         std::cout << "Player " + std::to_string(p->id()) + " turn." << std::endl;
     }
 
-    void Console::print(std::string str)
+    void Console::print(std::string str) const
     {
         std::cout << str << std::endl;
     }

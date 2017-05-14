@@ -8,12 +8,12 @@ namespace tictactoe
         opp = qopp;
     }
 
-    int MaxMinAlgorithm::player()
+    int MaxMinAlgorithm::player() const
     {
         return p->id();
     }
 
-    int MaxMinAlgorithm::move(Board b)
+    int MaxMinAlgorithm::move(const Board& b)
     {
         MaxMinResult result = bestmove(b);
         return result.index;

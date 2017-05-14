@@ -12,13 +12,13 @@ namespace tictactoe
             Board();
             int set(int c, int v);
             bool is_set(int c);
-            int get(int x);
-            bool in_bounds(int c);
-            bool has_won();
-            bool is_full();
+            int get(int x) const;
+            bool in_bounds(int c) const;
+            bool has_won() const;
+            bool is_full() const;
         private:
             int board[9];
-            void check_error(int x);
+            void check_error(int x) const;
     };
 }
 #endif

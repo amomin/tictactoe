@@ -26,18 +26,18 @@ namespace tictactoe
         return 0;
     }
 
-    int Board::get(int c)
+    int Board::get(int c) const
     {
         check_error(c);
         return board[c-1];
     }
 
-    bool Board::in_bounds(int c)
+    bool Board::in_bounds(int c) const
     {
         return c > 0 && c < 10;
     }
 
-    bool Board::has_won()
+    bool Board::has_won() const
     {
         for (int i = 0; i < 3; i++)
         {
@@ -69,7 +69,7 @@ namespace tictactoe
         return false;
     }
 
-    bool Board::is_full()
+    bool Board::is_full() const
     {
         for (int i : board)
         {
@@ -78,7 +78,7 @@ namespace tictactoe
         return true;
     }
 
-    void Board::check_error(int c)
+    void Board::check_error(int c) const
     {
         if (!in_bounds(c))
         {
