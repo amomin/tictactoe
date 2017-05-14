@@ -18,7 +18,7 @@ namespace tictactoe
         {
             int x = 1 + std::rand() % 9;
 
-            if (b.get(x) == 2) {
+            if (!b.is_set(x)) {
                 return x;
             }
         }

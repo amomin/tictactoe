@@ -11,7 +11,7 @@ namespace tictactoe
         public:
             Board();
             int set(int c, int v);
-            bool is_set(int c);
+            bool is_set(int c) const;
             int get(int x) const;
             bool in_bounds(int c) const;
             bool has_won() const;

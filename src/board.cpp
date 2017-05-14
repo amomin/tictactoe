@@ -10,9 +10,10 @@ namespace tictactoe
         }
     }
 
-    bool Board::is_set(int c)
+    bool Board::is_set(int c) const
     {
-       return board[c-1] != 2; 
+        check_error(c);
+        return board[c-1] != 2; 
     }
 
     int Board::set(int c, int v)
